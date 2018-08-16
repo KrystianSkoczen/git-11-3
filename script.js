@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		this.name = name;
 		this.element = generateTemplate('column-template', { name: this.name});
 		
-		this.element.guerySelector('.column').addEventListener('click', function (event) {
+		this.element.querySelector('.column').addEventListener('click', function (event) {
 			if (event.target.classList.contains('btn-delete')) {
 				self.removeColumn();
 			}
-			if (event.target.classList.contains(add-card)) {
+			if (event.target.classList.contains('add-card')) {
 				self.addCard(new Card(prompt("Enter the name of the card")));
 			}
 		});
@@ -47,19 +47,26 @@ document.addEventListener('DOMContentLoaded', function(){
 		this.description = description;
 		this.element = generateTemplate('card-template', { description: this.description}, 'li');
 
-		this.element.querySelector('.card').addEventListener('click', function (event) ) {
+		this.element.querySelector('.card').addEventListener('click', function (event) {
 			event.stopPropagation();
 
 			if (event.target.classList.contains('btn-delete')) {
 				self.removeCard();
 			}
-		}
+		});
 		Card.prototype = {
 			removeCard: function() {
 				this.element.parentNode.removeChild(this.element);
 			}
 		}
 	}
+/*	function Board() {
+		var self = this;
+
+		this.id = randomString();
+		this.name = name;
+
+	} */
 	var board = {
 		name: 'Kanban Board',
 		addColumn: function(column) {
@@ -67,7 +74,9 @@ document.addEventListener('DOMContentLoaded', function(){
 			initSortable(column.id);
 		},
 		element: document.querySelector('#board .column-container')
+
 	};
+
 	function initSortable(id) {
 		var el = document.getElementById(id);
 		var sortable = Sortable.create(el, {
@@ -80,22 +89,23 @@ document.addEventListener('DOMContentLoaded', function(){
 		board.addColumn(column);
 	});
 	}
+	// CREATING COLUMNS
+	var todoColumn = new Column('To do');
+	var doingColumn = new Column('Doing');
+	var doneColumn = new Column('Done');
+
+	// ADDING COLUMNS TO THE BOARD
+	board.addColumn(todoColumn);
+	board.addColumn(doingColumn);
+	board.addColumn(doneColumn);
+
+	// CREATING CARDS
+	var card1 = new Card('New task');
+	var card2 = new Card('Create kanban boards');
+
+	// ADDING CARDS TO COLUMNS
+	todoColumn.addCard(card1);
+	doingColumn.addCard(card2);
+
 });
 
-// CREATING COLUMNS
-var todoColumn = new Column('To do');
-var doingColumn = new Column('Doing');
-var doneColumn = new Column('Done');
-
-// ADDING COLUMNS TO THE BOARD
-board.addColumn(todoColumn);
-board.addColumn(doingColumn);
-board.addColumn(doneColumn);
-
-// CREATING CARDS
-var card1 = new Card('New task');
-var card2 = new Card('Create kanban boards');
-
-// ADDING CARDS TO COLUMNS
-todoColumn.addCard(card1);
-doingColumn.addCard(card2);
