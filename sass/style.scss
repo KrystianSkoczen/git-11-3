@@ -4,10 +4,29 @@ body {
 	text-align: center;
 }
 button {
+	text-align: center;
 	color: rgb(255, 255, 255);
 	background-color: rgb(31, 145, 27);
 }
 button:hover {
 	background-color: rgb(24, 188, 18);
 	cursor: pointer;
+}
+.column-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.column-card-list {
+	list-style: none;
+}
+.card {
+	background-color: rgb(255, 255, 255);
+	border-bottom: solid 2px rgba(68, 73, 81, 0.5);
+	border-right: solid 2px rgba(68, 73, 81, 0.5);	
+	margin-bottom: 20px;
+	width: 200px;
+}
+.card-description {
+	margin: 0 20px;
 }

@@ -1,5 +1,32 @@
-body { background-color: #a2ff3f; margin: 0; text-align: center; }
+body {
+  background-color: #a2ff3f;
+  margin: 0;
+  text-align: center; }
 
-button { color: white; background-color: #1f911b; }
+button {
+  text-align: center;
+  color: white;
+  background-color: #1f911b; }
 
-button:hover { background-color: #18bc12; cursor: pointer; }
+button:hover {
+  background-color: #18bc12;
+  cursor: pointer; }
+
+.column-container {
+  display: flex;
+  justify-content: space-around; }
+
+.column-card-list {
+  list-style: none; }
+
+.card {
+  background-color: white;
+  border-bottom: solid 2px rgba(68, 73, 81, 0.5);
+  border-right: solid 2px rgba(68, 73, 81, 0.5);
+  margin-bottom: 20px;
+  width: 200px; }
+
+.card-description {
+  margin: 0 20px; }
+
+/*# sourceMappingURL=style.css.map */
