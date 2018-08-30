@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function(){
 				self.addCard(new Card(prompt("Enter the name of the card")));
 			}
 		});
-		Column.prototype = {
+	}
+	Column.prototype = {
 			addCard: function(card) {
 				this.element.querySelector('ul').appendChild(card.element);
 			},
@@ -42,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				this.element.parentNode.removeChild(this.element);
 			}
 		};
-	}
 	function Card(description) {
 		var self = this;
 
@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', function(){
 				self.removeCard();
 			}
 		});
-		Card.prototype = {
+	}
+	Card.prototype = {
 			removeCard: function() {
 				this.element.parentNode.removeChild(this.element);
 			}
 		}
-	}
 
 	var board = {
 		name: 'Kanban Board',
