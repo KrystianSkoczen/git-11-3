@@ -64,12 +64,6 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	}
 
-	document.querySelector('#board .create-column').addEventListener('click', function() {
-        var name = prompt('Enter a column name');
-        var column = new Column(name);
-        board.addColumn(column);
-    });
-
 	var board = {
 		name: 'Kanban Board',
 		addColumn: function(column) {
@@ -102,9 +96,14 @@ document.addEventListener('DOMContentLoaded', function(){
 	// CREATING CARDS
 	var card1 = new Card('New task');
 	var card2 = new Card('Create kanban boards');
-	 
+
 	// ADDING CARDS TO COLUMNS
 	todoColumn.addCard(card1);
 	doingColumn.addCard(card2);
 
+	document.querySelector('#board .create-column').addEventListener('click', function() {
+        var name = prompt('Enter a column name');
+        var column = new Column(name);
+        board.addColumn(column);
+    });
 });
